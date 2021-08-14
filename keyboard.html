@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Virtual keyboard</title>
+<style>
+   #keyboard{
+        width:1100px;
+        
+        background-color: lightpink;
+        margin:auto;
+    }
+    
+    .key{
+        height: 70px;
+        width: 70px;
+    }
+    
+    .space{
+        width: 400px;
+    }
+ 
+    table{
+        background-color:powderblue;
+        margin-left: 2%;
+        margin-right: 50%;
+        
+    }
+    .ctrl{
+         width:100px;
+    }
+    
+    .table2{
+       float:left;
+    }
+    
+    .input{
+        height: 400px;
+        width:600px;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="keyboard">
+            <input type="text" class="input" name="input" placeholder="Enter text"/>
+            <table class="table1">
+                <tbody>
+                    
+                <tr class="line1">
+                    
+                    <td><button class="key" value="`">`</button></td>
+                    <td><button class="key" value="1">1</button></td>
+                    <td><button class="key" value="2">2</button></td>
+                    <td><button class="key" value="3">3</button></td>
+                    <td><button class="key" value="4">4</button></td>
+                    <td><button class="key" value="5">5</button></td>
+                    <td><button class="key" value="6">6</button></td>
+                    <td><button class="key" value="7">7</button></td>
+                    <td><button class="key" value="8">8</button></td>
+                    <td><button class="key" value="9">9</button></td>
+                    <td><button class="key" value="0">0</button></td>
+                    <td><button class="key " value="-">-</button></td>
+                    <td><button class="key " value="=">=</button></td>
+                    <td><button class="key " value="backspace">backspace</button></td>
+                    
+                    </tr>
+            </table>
+            <table class="table2">
+                <tr class="line2">
+                        <!-- Letters-->
+                    <td><button class="key tab" value="tab">Tab</button></td>
+                    <td><button class="key" value="Q">Q</button></td>
+                    <td><button class="key" value="W">W</button></td>
+                    <td><button class="key" value="E">E</button></td>
+                    <td><button class="key" value="R">R</button></td>
+                    <td><button class="key" value="T">T</button></td>
+                    <td><button class="key" value="Y">Y</button></td>
+                    <td><button class="key" value="U">U</button></td>
+                    <td><button class="key" value="I">I</button></td>
+                    <td><button class="key" value="O">O</button></td>
+                    <td><button class="key" value="P">P</button></td>
+                    <td><button class="key " value="[">[</button></td>
+                    <td><button class="key " value="]">]</button></td>
+                    <td><button class="key " value="\">\</button></td>
+                </tr>
+            </table>
+            <table>
+                <tr class="line3">
+                    <td><button class="key caps" value="Caps Lock">Caps Lock</button></td>
+                    <td><button class="key" value="A">A</button></td>
+                    <td><button class="key" value="S">S</button></td>
+                    <td><button class="key" value="D">D</button></td>
+                    <td><button class="key" value="F">F</button></td>
+                    <td><button class="key" value="G">G</button></td>
+                    <td><button class="key" value="H">H</button></td>
+                    <td><button class="key" value="J">J</button></td>
+                    <td><button class="key" value="K">K</button></td>
+                    <td><button class="key" value="L">L</button></td>
+                    <td><button class="key" value=";">;</button></td>
+                    <td><button class="key" value="'">'</button></td>
+                    <td><button class="key enter" value="Enter">Enter</button></td>
+                 </tr>
+            </table>
+            <table>
+                <tr class="line4">
+                    <td><button class="key" value="Shift">Shift</button></td>
+                    <td><button class="key" value="Z">Z</button></td>
+                    <td><button class="key" value="X">X</button></td>
+                    <td><button class="key" value="C">C</button></td>
+                    <td><button class="key" value="V">V</button></td>
+                    <td><button class="key" value="B">B</button></td>
+                    <td><button class="key" value="N">N</button></td>
+                    <td><button class="key" value="M">M</button></td>
+                    <td><button class="key" value=",">,</button></td>
+                    <td><button class="key" value=".">.</button></td>
+                    <td><button class="key" value="/">/</button></td>
+                    <td><button class="key shift" value="Shift">Shift</button></td>
+                    
+                
+                </tr>
+            </table>    
+               
+                <table class="table3">
+                    <tr>
+                        
+                    <td><button class="key ctrl" value="Ctrl">Ctrl</button></td>
+                    <td><button class="key alt" value="Alt">Alt</button></td>
+                    <td><button class="key space" value=" space ">Space</button></td>
+                    <td><button class="key alt" value="Alt">Alt</button></td>
+                    <td><button class="key ctrl" value="Ctrl">Ctrl</button></td>
+             
+                    </tr>
+                </table>
+                
+            
+        </div>
+    </div>
+
+
+    <script>
+        const display = document.querySelector(".input");
+        const buttons = document.querySelectorAll(".key");
+        
+        buttons.forEach(function(buttons){
+            buttons.addEventListener('onclick', showwords);
+            
+        });
+        
+        function showwords(event){
+            
+            let clickedbut = event.target.value;
+            
+            
+            //The shift button
+            
+                   if(clickedbut.value === 'capslock')
+                       {
+                          display.value = display.value.slice(0,1); 
+                       }
+            else{
+                display.value += clickedbut;
+            }
+              
+            
+            
+                
+            
+        }
+        
+
+
+    </script>
+</body>
+</html>
